@@ -1,0 +1,43 @@
+# demo использует секции camera и vision. Остальные секции предназначены будущему runtime.
+schema_version = 1
+
+[camera]
+backend = "opencv"
+device = 0
+width = 640
+height = 480
+fps = 30
+
+[vision]
+roi_top = 0.55
+roi_bottom = 0.92
+blur_kernel = 5
+threshold_mode = "otsu"
+threshold_value = 100
+min_contour_area_ratio = 0.01
+max_contour_area_ratio = 0.65
+dead_zone_normalized = 0.03
+min_contrast = 30
+min_line_height_ratio = 0.5
+
+[control]
+base_speed = 0.20
+max_speed = 0.40
+kp = 0.35
+allow_reverse = false
+
+[motors]
+backend = "mock"
+hardware_enabled = false
+
+[safety]
+start_stopped = true
+max_frame_age_seconds = 0.25
+ui_heartbeat_timeout_seconds = 1.0
+supervisor_tick_seconds = 0.02
+require_explicit_resume = true
+
+[ui]
+title = "Робот-помощник в парке"
+fullscreen = false
+demo_routes = true

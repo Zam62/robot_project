@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "park-robot"
+version = "0.1.0.dev0"
+description = "Учебный робот-помощник: движение по линии и информационный экран"
+requires-python = ">=3.11"
+dependencies = ["opencv-python>=4.8,<5", "numpy>=1.26,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1"]
+
+[project.scripts]
+park-robot = "park_robot.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["inbox"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
